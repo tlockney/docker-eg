@@ -34,7 +34,8 @@ Vagrant::Config.run do |config|
         "chmod 700 /root/guest_additions.sh; " \
         "sed -i -E 's#^exit 0#[ -x /root/guest_additions.sh ] \\&\\& /root/guest_additions.sh#' /etc/rc.local; " \
         "echo 'Installation of VBox Guest Additions is proceeding in the background.'; " \
-        "echo '\"vagrant reload\" can be used in about 2 minutes to activate the new guest additions.'; "
+        "echo '\"vagrant reload\" can be used in about 2 minutes to activate the new guest additions.'; " \
+        "echo -n 'Finished at'; date"
     end
     # Add vagrant user to the docker group
     pkg_cmd << "usermod -a -G docker vagrant; "
